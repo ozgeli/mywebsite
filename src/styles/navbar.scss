@@ -1,0 +1,123 @@
+@import './_variables.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Makes the navbar sticky */
+  top: 0; /* Positions the navbar at the top */
+  z-index: 1000; /* Ensures the navbar is above other content */
+
+  .navbar-name {
+    .home-link {
+      text-decoration: none;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5em;
+      color: #000;
+      text-transform: lowercase;
+      margin: 0;
+    }
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+
+    a {
+      position: relative;
+      text-decoration: none;
+      color: #000;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 1.2em;
+      text-transform: lowercase;
+      padding-bottom: 5px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: #ff6f61;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      &:hover {
+        color: #ff6f61;
+      }
+    }
+    
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+
+    .bar {
+      height: 3px;
+      width: 100%;
+      background-color: #000;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .navbar-name h1 {
+      font-size: 1.2em;
+    }
+
+    .navbar-links {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      background-color: #fff;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      padding: 10px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      a {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+
+      &.open {
+        display: flex;
+      }
+    }
+
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .navbar-name h1 {
+      font-size: 1em;
+    }
+
+    .navbar-links a {
+      font-size: 0.9em;
+    }
+  }
+}

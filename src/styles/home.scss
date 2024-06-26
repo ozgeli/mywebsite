@@ -1,0 +1,72 @@
+@import './_variables.scss';
+@import './global.scss';
+
+@keyframes growLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  animation: fadeIn 0.5s ease-in-out;
+
+  .about {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    .about-title {
+      margin-bottom: 20px;
+
+      h2 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2em;
+        color: #000;
+      }
+    }
+
+    .about-text {
+      p {
+        font-family: 'Work Sans', sans-serif;
+        font-size: 1.2em;
+        color: #666;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .separator {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #ff6f61, rgba(255, 111, 97, 0.5), #ff6f61);
+    margin: 20px 0;
+    position: relative;
+    animation: growLine 2s ease-out forwards;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff6f61;
+      border-radius: 50%;
+      top: -4px;
+    }
+
+    &::before {
+      left: -5px;
+    }
+
+    &::after {
+      right: -5px;
+    }
+  }
+}
